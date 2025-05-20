@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #f4f4f9; /* Changed from blue (#00539C) to light gray (#f4f4f9) */
+            color: #333; /* Adjusted text color for better contrast */
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+        header img {
+            height: 40px; /* Reduced from 50px to 40px */
+            margin-right: 20px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        main {
+            padding: 20px;
+        }
+        a {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #00539C;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #003f73;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/static/albertsons_logo.png" alt="Albertsons Logo">
+        <h1>Quiz App</h1>
+    </header>
+    <main>
+        <h1>Welcome to the Quiz App</h1>
+        <a href="/quiz">Start Quiz</a>
+        {% if is_admin %}
+        <a href="/scores">View Student Scores</a>
+        {% endif %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+        header img {
+            height: 40px;
+            margin-right: 20px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        main {
+            padding: 20px;
+        }
+        a {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #00539C;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #003f73;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/static/albertsons_logo.png" alt="Albertsons Logo">
+        <h1>Quiz App</h1>
+    </header>
+    <main>
+        <h1>Quiz</h1>
+        <form method="POST">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br><br>
+            {% for question in questions %}
+                <p>{{ question.question_text }}</p>
+                <input type="radio" id="option_a_{{ question.id }}" name="{{ question.id }}" value="A" required>
+                <label for="option_a_{{ question.id }}">{{ question.option_a }}</label><br>
+                <input type="radio" id="option_b_{{ question.id }}" name="{{ question.id }}" value="B">
+                <label for="option_b_{{ question.id }}">{{ question.option_b }}</label><br>
+                <input type="radio" id="option_c_{{ question.id }}" name="{{ question.id }}" value="C">
+                <label for="option_c_{{ question.id }}">{{ question.option_c }}</label><br>
+                <input type="radio" id="option_d_{{ question.id }}" name="{{ question.id }}" value="D">
+                <label for="option_d_{{ question.id }}">{{ question.option_d }}</label><br><br>
+            {% endfor %}
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+</html>
